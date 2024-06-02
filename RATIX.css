@@ -1,0 +1,15 @@
+/* Estilos para hacer los botones más visibles y fáciles de tocar en dispositivos móviles */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Aumentar el tamaño del área de clic para los botones */
+        button.large-click-area {
+            padding: 20px 40px;
+        }
