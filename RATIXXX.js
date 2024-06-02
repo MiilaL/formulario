@@ -34,6 +34,36 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 });
 
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionar los botones por sus IDs
+            var entryButton = document.getElementById("entry");
+            var validateButton = document.getElementById("validate");
+            var correctButton = document.getElementById("boton-correcto-nac");
+            var incorrectButton = document.getElementById("boton-incorrecto-nac");
+            var descubrirButton = document.getElementById("botonDescubreQueEres");
+
+            // Agregar event listeners para eventos táctiles
+            entryButton.addEventListener("touchstart", function() {
+                displayName2();
+            });
+
+            validateButton.addEventListener("touchstart", function() {
+                mostrarFechaNacimiento();
+            });
+
+            correctButton.addEventListener("touchstart", function() {
+                mostrarMensajeSiguientePaso();
+            });
+
+            incorrectButton.addEventListener("touchstart", function() {
+                reiniciarPagina();
+            });
+
+            descubrirButton.addEventListener("touchstart", function() {
+                queCosaEres();
+            });
+        });
+
 var nombreIngresado = ""; // Variable global para almacenar el nombre ingresado
 
 
