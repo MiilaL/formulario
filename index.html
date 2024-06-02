@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>HAMSTERXXX</title>
+    <script src="./RATIXXX.js"></script>
+</head>
+<body>
+    <section class="tarjeta1Intro"  id="intro">
+        <div id="introduccion">
+            <h1><span >Miila Adivina</span></h1>
+            <p>
+                ¡Hola y bienvenido a Descubre un Poco Sobre Ti, creado por Miila! Aquí encontrarás un lugar para explorar aspectos sorprendentes sobre ti mismo y descubrir quién eres en un nivel más profundo. ¿Podrías ser un cristal, un índigo, un animal o simplemente un humano? Para comenzar, solo necesito tres datos reales: tu fecha de nacimiento, día, mes y año.
+            <br>asi que ven y hagamso algo interesante 
+            </p>
+            <h2><span>Continuemos</span></h2> 
+        </div>
+
+        <div id="contendor-nombres">
+            <div id="nameDiv" class="input">Hola, ingresa por favor tu nombre: <input id="name" type="text" name="name" required />
+
+                <script>
+                document.getElementById("name").addEventListener("input", function(event) {
+                    var inputValue = event.target.value;
+                    // Reemplaza cualquier número encontrado en el valor del campo con una cadena vacía
+                    event.target.value = inputValue.replace(/[0-9]/g, '');
+                });
+                </script>
+                
+
+            </div> 
+            <p id="displayName">Hola, por favor dale click en enter para continuar</p>
+            <button id="entry" onclick="displayName2();">Enter</button>
+        </div>
+    </section>
+    
+    <section class="tarjeta2Datos"  id="datos-nacimiento" style="display: none;">
+        <div id="contenedor-dias">
+            <p id="displayName2">Hola,</p>
+            <p>Introduce el número en el día que naciste: <input id="numeros-dia" type="text" placeholder="01 02 8 9 12" pattern="^(0?[1-9]|[12][0-9]|3[01])$" onkeyup="verificarDia(this.value);" disabled />
+
+            </p> 
+            <div id="resultadoSuma-dias"></div>
+        </div>
+        
+        <div id="contenedor-mes">
+            <p>Introduce el número del mes en que naciste:<input id="numeros-mes" type="text" placeholder="02 03 09 10 11" pattern="^(0?[1-9]|1[0-2])$" onkeyup="verificarMes(this.value);" disabled />
+
+            </p> 
+            <div id="resultadoSuma-mes"></div>
+        </div>
+        
+        <div id="contenedor-año">
+            <p>Introduce el número del año en que naciste:
+                <br>utiliza las flechas para seleccionar tu numero
+                <input id="numeros-año" type="number" min="1920" max="2024" placeholder="1999 2002 1956" oninput="verificarAño()" disabled />
+
+
+            </p> 
+            <div id="resultadoSuma-año"></div>
+        </div>
+        <button id="validate" onclick="mostrarFechaNacimiento();">Validar</button>
+    </section>
+
+    <section class="tarjeta3Validacion" id ="validacion-datos" style="display: none;">
+            <h2>Tus datos son:<span></span> </h2>
+            <p><div id="fecha-nacimieto-completa"></div>
+            <br><p>Por favor verifica si tus datos, si esta todo bien dale click en correcto; de no ser asi dale click en incorrecto</p> 
+            <button id="boton-incorrecto-nac" onclick="reiniciarPagina()">incorrecto</button>
+            <button id="boton-correcto-nac" onclick="mostrarMensajeSiguientePaso()">correcto</button>
+    </section>
+    
+    <section class="tarjeta4Resultados" id="resultados" style="display: none;">
+        <div id="paso2">
+            <p id="mensaje-siguiente-paso"></p>
+            <button id="botonDescubreQueEres" onclick="queCosaEres ()">DESCUBRIR</button>
+        </div>
+    </section>
+
+    <section class="tarjeta5QueEres" id="queEres" style="display: none;">
+        <div><p id="mensajeQueEres"></p></div>
+    </section>
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="miila_lozada" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
