@@ -30,7 +30,7 @@
 
             </div> 
             <p id="displayName">Hola, por favor dale click en enter para continuar</p>
-            <button id="entry" onclick="displayName2();">Enter</button>
+            <button id="entry" class="large-click-area" onclick="displayName2();">Enter</button>
         </div>
     </section>
     
@@ -59,21 +59,21 @@
             </p> 
             <div id="resultadoSuma-año"></div>
         </div>
-        <button id="validate" onclick="mostrarFechaNacimiento();">Validar</button>
+        <button id="validate"  class="large-click-area" onclick="mostrarFechaNacimiento();">Validar</button>
     </section>
 
     <section class="tarjeta3Validacion" id ="validacion-datos" style="display: none;">
             <h2>Tus datos son:<span></span> </h2>
             <p><div id="fecha-nacimieto-completa"></div>
             <br><p>Por favor verifica si tus datos, si esta todo bien dale click en correcto; de no ser asi dale click en incorrecto</p> 
-            <button id="boton-incorrecto-nac" onclick="reiniciarPagina()">incorrecto</button>
-            <button id="boton-correcto-nac" onclick="mostrarMensajeSiguientePaso()">correcto</button>
+            <button id="boton-incorrecto-nac" class="large-click-area"  onclick="reiniciarPagina()">incorrecto</button>
+            <button id="boton-correcto-nac" class="large-click-area"  onclick="mostrarMensajeSiguientePaso()">correcto</button>
     </section>
     
     <section class="tarjeta4Resultados" id="resultados" style="display: none;">
         <div id="paso2">
             <p id="mensaje-siguiente-paso"></p>
-            <button id="botonDescubreQueEres" onclick="queCosaEres ()">DESCUBRIR</button>
+            <button id="botonDescubreQueEres" class="large-click-area" onclick="queCosaEres ()">DESCUBRIR</button>
         </div>
     </section>
 
