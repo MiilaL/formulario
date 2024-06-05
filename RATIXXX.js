@@ -34,36 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Seleccionar los botones por sus IDs
-            var entryButton = document.getElementById("entry");
-            var validateButton = document.getElementById("validate");
-            var correctButton = document.getElementById("boton-correcto-nac");
-            var incorrectButton = document.getElementById("boton-incorrecto-nac");
-            var descubrirButton = document.getElementById("botonDescubreQueEres");
-
-            // Agregar event listeners para eventos táctiles
-            entryButton.addEventListener("touchstart", function() {
-                displayName2();
-            });
-
-            validateButton.addEventListener("touchstart", function() {
-                mostrarFechaNacimiento();
-            });
-
-            correctButton.addEventListener("touchstart", function() {
-                mostrarMensajeSiguientePaso();
-            });
-
-            incorrectButton.addEventListener("touchstart", function() {
-                reiniciarPagina();
-            });
-
-            descubrirButton.addEventListener("touchstart", function() {
-                queCosaEres();
-            });
-        });
-
 var nombreIngresado = ""; // Variable global para almacenar el nombre ingresado
 
 
@@ -204,15 +174,21 @@ function mostrarMensajeSiguientePaso() {
     //cuando se completa totalmente
     var cumple = seCompletoNumMaximo + 1;
 
+    //variables para cuando es menor el la sumadeDigitos que el año 
+    var mayorAño = sumarDigitos(resultadoSumaDigIntermediosMasMinimo);
+
+    //variables para cuando es menor el la sumadeDigitos que el año 
+    var sumaTotalMayorAño = sumaDigitosNumeroMayor + mayorAño;
+
+
+
+
     // Mensaje con los resultados
-    var mensaje = //"La Suma de los dígitos de tu día de nacimiento es: " + sumaDia + "<br>" +
-        //"La Suma de los dígitos de tu mes de nacimiento es: " + sumaMes + "<br>" +
-        //"La Suma de los dígitos de tu año de nacimiento es: " + sumaAño + "<br>"+
-        "Tu fecha de nacimeinto es: " + comentarioFechaNacimiento + "<br>" +
-        "Estos son 3 numeros importantes en tu vida: " +"<br>"+
+    var mensaje = "Tu fecha de nacimeinto es: " + comentarioFechaNacimiento + "<br>" +
+        "Estos son 3 numeros importantes en tu vida: " + "<br>" +
         dia + "<br>" +
         mes + "<br>" +
-        sumaAño + "<br>"
+        sumaAño + "<br>";
 
     var mensajeElement = document.getElementById("mensaje-siguiente-paso");
     mensajeElement.innerHTML = mensaje;
@@ -231,21 +207,52 @@ function mostrarMensajeSiguientePaso() {
     mensajeElement.appendChild(mensajeIntermedioElement);
 
     // Nuevo mensaje sobre el número máximo
-    var mensajeMaximo = "De los " + seCompletoNumInter + " años hasta los " + seCompletoNumMaximo + " años, fuiste " + resultadoSumaDigIntermediosMasMinimo + "," + " Como pasaste por " + numeroMaximo + " quedaste " + sumaTotal;
+    var mensajeMaximo;
+    if (sumaDigitosNumeroMayor < sumaAño) {
+        mensajeMaximo = "De los " + seCompletoNumInter + " años hasta los " + seCompletoNumMaximo + " años, fuiste " + resultadoSumaDigIntermediosMasMinimo + ", Como pasaste por " + resultadoSumaDigIntermediosMasMinimo + ",se suma y quedaste " + mayorAño +" Como pasaste por " + numeroMaximo + " quedaste " + sumaTotalMayorAño ;
     var mensajeMaximoElement = document.createElement("p");
     mensajeMaximoElement.textContent = mensajeMaximo;
     mensajeElement.appendChild(mensajeMaximoElement);
+    }
+    else {
+        mensajeMaximo = "De los " + seCompletoNumInter + " años hasta los " + seCompletoNumMaximo + " años, fuiste " + resultadoSumaDigIntermediosMasMinimo + "," + " Como pasaste por " + numeroMaximo + " quedaste " + sumaTotal;
+        var mensajeMaximoElement = document.createElement("p");
+        mensajeMaximoElement.textContent = mensajeMaximo;
+        mensajeElement.appendChild(mensajeMaximoElement);
+    }
 
-    var mensajeFinal = nombre + " te completas  como " + sumaTotal + " cuando cumplas " + cumple + " años" 
-    var mensajeFinalElement = document.createElement("p");
-    mensajeFinalElement.textContent = mensajeFinal;
-    mensajeElement.appendChild(mensajeFinalElement)
 
-    var mensajeAdicional =" Aun te falta algo para descubir, ¿quieres saber que significa ese " + sumaTotal + "?" 
-    var mensajeAdicionalElement = document.createElement("p");
-    mensajeAdicionalElement.textContent = mensajeAdicional
-    mensajeElement.appendChild(mensajeAdicionalElement)
+    var mensajeFinal;
+    if (sumaDigitosNumeroMayor < sumaAño) {
+        mensajeFinal = nombre + " te completas  como " + sumaTotalMayorAño + " cuando cumplas " + cumple + " años";
+        var mensajeFinalElement = document.createElement("p");
+        mensajeFinalElement.textContent = mensajeFinal;
+        mensajeElement.appendChild(mensajeFinalElement);
+    }
+    else{
+        mensajeFinal = nombre + " te completas  como " + sumaTotal + " cuando cumplas " + cumple + " años";
+        var mensajeFinalElement = document.createElement("p");
+        mensajeFinalElement.textContent = mensajeFinal;
+        mensajeElement.appendChild(mensajeFinalElement);
+    }
+
+
+    var mensajeAdicional;
+    if (sumaDigitosNumeroMayor < sumaAño) {
+        mensajeAdicional = "Aun te falta algo para descubrir, ¿quieres saber qué significa ese " + sumaTotalMayorAño + "?";
+        var mensajeAdicionalElement = document.createElement("p");
+        mensajeAdicionalElement.textContent = mensajeAdicional;
+        mensajeElement.appendChild(mensajeAdicionalElement);
+    }
+    else{
+        mensajeAdicional = "Aun te falta algo para descubrir, ¿quieres saber qué significa ese " + sumaTotal + "?";
+        var mensajeAdicionalElement = document.createElement("p");
+        mensajeAdicionalElement.textContent = mensajeAdicional;
+        mensajeElement.appendChild(mensajeAdicionalElement);
+    }
 }
+
+
 
 function queCosaEres (){
     var dia = document.getElementById("numeros-dia").value;
@@ -253,7 +260,7 @@ function queCosaEres (){
     var año = document.getElementById("numeros-año").value;
 
     // Mostrar fecha de nacimiento para tenerlo en cuenta
-    let comentarioFechaNacimiento = dia + " - " + mes + " - " + año;
+    // let comentarioFechaNacimiento = dia + " - " + mes + " - " + año;
 
     // Suma de los dígitos para cada campo
     var sumaDia = sumarDigitos(dia);
@@ -281,17 +288,55 @@ function queCosaEres (){
     // Variable para la suma total
     var sumaTotal = sumaDigitosNumeroMayor + resultadoSumaDigIntermediosMasMinimo;
 
-    // Condicionales para saber si es un  cristal- indigo - humano - animal 
-    if (sumaTotal <=10){
-        var mensaje = "Eres un cristal, nivel: "+sumaTotal
-    } else if (sumaTotal <=20){
-        var mensaje = "Eres un Indigo, nivel: "+sumaTotal
-    }else{
-        var mensaje = "Eres un humano, nivel: "+sumaTotal
-    }
+    //cuando se completa totalmente
+       // var cumple = seCompletoNumMaximo + 1;
 
-    var mensajeDescubre = document.getElementById("mensajeQueEres");
-    mensajeDescubre.innerHTML = mensaje;
+    //variables para cuando es menor el la sumadeDigitos que el año 
+    var mayorAño = sumarDigitos(resultadoSumaDigIntermediosMasMinimo);
+    
+    //variables para cuando es menor el la sumadeDigitos que el año 
+    var sumaTotalMayorAño = sumaDigitosNumeroMayor + mayorAño;
+
+    // Condicionales para saber si es un  cristal- indigo - humano - animal 
+    if(sumaDigitosNumeroMayor < sumaAño)
+        {
+            if(sumaTotalMayorAño <= 10)
+                {
+                var mensaje = "Eres un cristal, nivel: "+ sumaTotalMayorAño;
+                var mensajeDescubre = document.getElementById("mensajeQueEres");
+                mensajeDescubre.innerHTML = mensaje;
+                }
+            else if (sumaTotalMayorAño <= 20)
+                {
+                var mensaje = "Eres un Indigo, nivel: "+ sumaTotalMayorAño;
+                var mensajeDescubre = document.getElementById("mensajeQueEres");
+                mensajeDescubre.innerHTML = mensaje;
+                }
+            else
+                {
+                var mensaje = "Eres un humano, nivel: "+ sumaTotalMayorAño;
+                var mensajeDescubre = document.getElementById("mensajeQueEres");
+                mensajeDescubre.innerHTML = mensaje;
+                }
+        }
+    else if(sumaTotal <=10)
+        {
+        var mensaje = "Eres un cristal, nivel: "+sumaTotal
+        var mensajeDescubre = document.getElementById("mensajeQueEres");
+        mensajeDescubre.innerHTML = mensaje;
+        } 
+        else if (sumaTotal <=20)
+        {
+        var mensaje = "Eres un Indigo, nivel: "+sumaTotal
+        var mensajeDescubre = document.getElementById("mensajeQueEres");
+        mensajeDescubre.innerHTML = mensaje;
+        }
+        else
+        {
+        var mensaje = "Eres un humano, nivel: "+sumaTotal
+        var mensajeDescubre = document.getElementById("mensajeQueEres");
+        mensajeDescubre.innerHTML = mensaje;
+        }
     
 } 
 
