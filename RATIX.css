@@ -55,8 +55,8 @@
 
 .Pintroduccion{
     background: #f7e4de;
-    width: 711px;
-    height: 135px;
+    width: 500px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -64,8 +64,8 @@
     align-items: center;
 }
 #contendor-nombres{
-    width: 432px;
-    height: 151px;
+    width: 332px;
+    height: 100px;
     background: #f1d6cd;
     display: flex;
     flex-direction: column;
