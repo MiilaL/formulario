@@ -65,8 +65,8 @@
 }
 #contendor-nombres{
     width: 332px;
-    height: 100px;
-    background: #f1d6cd;
+    height: 175px;
+    background: #a7afff;
     display: flex;
     flex-direction: column;
     align-items: center;
