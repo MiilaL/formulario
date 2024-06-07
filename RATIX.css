@@ -1,3 +1,28 @@
+.tarjeta1Intro{
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+#introduccion{
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.Pintroduccion{
+    background: #f7e4de;
+    width: 711px;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilos para hacer los botones más visibles y fáciles de tocar en dispositivos móviles */
         button {
             padding: 10px 20px;
