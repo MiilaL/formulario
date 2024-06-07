@@ -38,7 +38,7 @@
     background: #d7d7d7;
 }
 
-@media (max-width: 896px){
+@media (max-width: 720px){
     .tarjeta1Intro{
     display: flex;
     flex-direction: column;
