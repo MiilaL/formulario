@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8"/>
     <title>HAMSTERXXX</title>
+    <link rel="stylesheet" href="./RATIX.css"/>
+    <link   rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="./RATIXXX.js"></script>
 </head>
 <body>
     <section class="tarjeta1Intro"  id="intro">
         <div id="introduccion">
-            <h1><span >Miila Adivina</span></h1>
-            <p>
+            <h1 class="animate__animated animate__bounce" >Miila Adivina</h1>
+            <p class ="Pintroduccion">
                 ¡Hola y bienvenido a Descubre un Poco Sobre Ti, creado por Miila! Aquí encontrarás un lugar para explorar aspectos sorprendentes sobre ti mismo y descubrir quién eres en un nivel más profundo. ¿Podrías ser un cristal, un índigo, un animal o simplemente un humano? Para comenzar, solo necesito tres datos reales: tu fecha de nacimiento, día, mes y año.
             <br>asi que ven y hagamso algo interesante 
             </p>
@@ -17,7 +20,7 @@
         </div>
 
         <div id="contendor-nombres">
-            <div id="nameDiv" class="input">Hola, ingresa por favor tu nombre: <input id="name" type="text" name="name" required />
+            <div id="nameDiv" class="input">Hola, ingresa por favor tu nombre: <input class="animate__jello" id="name" type="text" name="name" required />
 
                 <script>
                 document.getElementById("name").addEventListener("input", function(event) {
@@ -30,7 +33,7 @@
 
             </div> 
             <p id="displayName">Hola, por favor dale click en enter para continuar</p>
-            <button id="entry" class="large-click-area" onclick="displayName2();">Enter</button>
+            <button id="entry" onclick="displayName2();">Enter</button>
         </div>
     </section>
     
@@ -38,7 +41,6 @@
         <div id="contenedor-dias">
             <p id="displayName2">Hola,</p>
             <p>Introduce el número en el día que naciste: <input id="numeros-dia" type="text" placeholder="01 02 8 9 12" pattern="^(0?[1-9]|[12][0-9]|3[01])$" onkeyup="verificarDia(this.value);" disabled />
-
 
             </p> 
             <div id="resultadoSuma-dias"></div>
@@ -56,25 +58,24 @@
                 <br>utiliza las flechas para seleccionar tu numero
                 <input id="numeros-año" type="text" minlength="4" maxlength="4" placeholder="1999 2002 1956" oninput="this.value = this.value.replace(/[^0-9]/g, '')" onkeypress="if (event.keyCode === 13) verificarAño()" onblur="verificarAño()" />
 
-
             </p> 
             <div id="resultadoSuma-año"></div>
         </div>
-        <button id="validate"  class="large-click-area" onclick="mostrarFechaNacimiento();">Validar</button>
+        <button id="validate" onclick="mostrarFechaNacimiento();">Validar</button>
     </section>
 
     <section class="tarjeta3Validacion" id ="validacion-datos" style="display: none;">
             <h2>Tus datos son:<span></span> </h2>
             <p><div id="fecha-nacimieto-completa"></div>
             <br><p>Por favor verifica si tus datos, si esta todo bien dale click en correcto; de no ser asi dale click en incorrecto</p> 
-            <button id="boton-incorrecto-nac" class="large-click-area"  onclick="reiniciarPagina()">incorrecto</button>
-            <button id="boton-correcto-nac" class="large-click-area"  onclick="mostrarMensajeSiguientePaso()">correcto</button>
+            <button id="boton-incorrecto-nac" onclick="reiniciarPagina()">incorrecto</button>
+            <button id="boton-correcto-nac" onclick="mostrarMensajeSiguientePaso()">correcto</button>
     </section>
     
     <section class="tarjeta4Resultados" id="resultados" style="display: none;">
         <div id="paso2">
             <p id="mensaje-siguiente-paso"></p>
-            <button id="botonDescubreQueEres" class="large-click-area" onclick="queCosaEres ()">DESCUBRIR</button>
+            <button id="botonDescubreQueEres" onclick="queCosaEres ()">DESCUBRIR</button>
         </div>
     </section>
 
