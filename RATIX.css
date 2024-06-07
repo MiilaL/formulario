@@ -78,6 +78,13 @@
     border-radius: 10px;
     background: #d7d7d7;
 }
+
+    .PnumeroDias{
+    background: #d6abff;
+    width: 272px;
+    margin: 30px;
+    height: 50px;
+    }
 }
 
 /* Estilos para hacer los botones más visibles y fáciles de tocar en dispositivos móviles */
