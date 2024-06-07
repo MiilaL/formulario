@@ -42,14 +42,14 @@
     <section class="tarjeta2Datos"  id="datos-nacimiento" style="display: none;">
         <div id="contenedor-dias">
             <p id="displayName2">Hola,</p>
-            <p class = "PnumeroDias">Introduce el número en el día que naciste: <input id="numeros-dia" type="text" placeholder="01 02 8 9 12" pattern="^(0?[1-9]|[12][0-9]|3[01])$" onkeyup="verificarDia(this.value);" disabled />
+            <p class = "PnumeroDias">Introduce el número en el día que naciste: <input id="numeros-dia" type="text" placeholder=" 1 2 8 9 12 " pattern="^(0?[1-9]|[12][0-9]|3[01])$" onkeyup="verificarDia(this.value);" disabled />
 
             </p> 
             <div id="resultadoSuma-dias"></div>
         </div>
         
         <div id="contenedor-mes">
-            <p class = "PnumeroDias">Introduce el número del mes en que naciste:<input id="numeros-mes" type="text" placeholder="02 03 09 10 11" pattern="^(0?[1-9]|1[0-2])$" onkeyup="verificarMes(this.value);" disabled />
+            <p class = "PnumeroDias">Introduce el número del mes en que naciste:<input id="numeros-mes" type="text" placeholder=" 2 3 9 10 11 " pattern="^(0?[1-9]|1[0-2])$" onkeyup="verificarMes(this.value);" disabled />
 
             </p> 
             <div id="resultadoSuma-mes"></div>
@@ -58,7 +58,7 @@
         <div id="contenedor-año">
             <p class = "PnumeroDias">Introduce el número del año en que naciste:
                 <br>utiliza las flechas para seleccionar tu numero
-                <input id="numeros-año" type="text" minlength="4" maxlength="4" placeholder="1999 2002 1956" oninput="this.value = this.value.replace(/[^0-9]/g, '')" onkeypress="if (event.keyCode === 13) verificarAño()" onblur="verificarAño()" />
+                <input id="numeros-año" type="text" minlength="4" maxlength="4" placeholder=" 1999 2002 1956 " oninput="this.value = this.value.replace(/[^0-9]/g, '')" onkeypress="if (event.keyCode === 13) verificarAño()" onblur="verificarAño()" />
 
             </p> 
             <div id="resultadoSuma-año"></div>
