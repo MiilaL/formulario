@@ -131,6 +131,13 @@
     width: 100px;
     height: 36px;
     }
+
+    .tarjeta3Validacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center
+    }
     
 }
 
